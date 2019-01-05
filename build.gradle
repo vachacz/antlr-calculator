@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'antlr'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    antlr group: 'org.antlr', name: 'antlr4', version: '4.7.2'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+generateGrammarSource {
+    arguments += [
+        "-visitor",
+        "-long-messages",
+        "-package", "pl.vachacz.antlr.gen"
+    ]
+}
